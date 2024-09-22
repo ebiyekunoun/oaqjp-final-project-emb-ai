@@ -13,6 +13,11 @@ def sent_detector():
 
     emotion_data = emotion_detector(text)
 
+    # Check if emotion_data is None (indicating invalid or blank input)
+    if emotion_data is None:
+    # Return an error message for invalid text
+        return "Invalid text! Please try again!"    
+
     # Format the response as requested by the customer
     formatted_emotions = f"'anger': {emotion_data['anger']}, 'disgust': {emotion_data['disgust']}, 'fear': {emotion_data['fear']}, 'joy': {emotion_data['joy']} and 'sadness': {emotion_data['sadness']}"
     dominant_emotion = emotion_data['dominant_emotion']
